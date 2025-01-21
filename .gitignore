@@ -1,0 +1,43 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+.vite/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Tailwind CSS generated files
+*.css.map
+
+# Lint and prettier cache
+.eslintcache
+
+# Lock files (optional, if you don’t want to share them)
+package-lock.json
+yarn.lock
+
+# Miscellaneous
+*.log
+*.tmp

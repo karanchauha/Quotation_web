@@ -74,10 +74,10 @@ const Home = () => {
           <Electric setValues={(value) => updateValue("Electric", value)} />
           <Pop setValues={(value) => updateValue("Pop", value)} />
           <Paint setValues={(value) => updateValue("Paint", value)} />
+          <h2 className="text-center  text-gray-500 text-3xl font-semibold py-4 px-8 rounded-lg ">
+            Grand Total: {value}
+          </h2>
         </div>
-        <h2 className="text-center  text-gray-500 text-3xl font-semibold py-4 px-8 rounded-lg ">
-          Grand Total: {value}
-        </h2>
       </div>
       <div
         onClick={generatePDF}

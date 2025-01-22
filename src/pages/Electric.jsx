@@ -130,11 +130,11 @@ const Electric = ({ setValues }) => {
                   selectedOptions[categoryName].map((option) => (
                     <span
                       key={option.value}
-                      className="inline-flex items-center justify-between px-1 py-1 mr-2 text-sm bg-gray-500 text-white font-medium rounded-full pl-3"
+                      className="inline-flex items-center justify-between  m-1 text-sm bg-gray-500 text-white font-medium rounded-full pl-3"
                     >
                       {option.label}
                       <button
-                        className="ml-2 hover:text-blue-800 bg-white rounded-3xl text-black "
+                        className="m-2 bg-white rounded-full text-black pl-2 pr-2 pt-1 pb-1  "
                         onClick={(e) => {
                           e.stopPropagation();
                           toggleOption(categoryName, option);

@@ -186,15 +186,15 @@ const Testi = ({ setValues }) => {
                 onClick={() => toggleDropdown(categoryName)}
               >
                 {selectedOptions[categoryName]?.length > 0 ? (
-                  <div className="flex flex-wrap items-center">
+                  <div className="flex flex-wrap items-center ">
                     {selectedOptions[categoryName].map((option) => (
                       <span
                         key={option.value}
-                        className="inline-flex items-center justify-between px-1 py-1 m-1 text-sm bg-gray-500 text-white font-medium rounded-full pl-3"
+                        className="inline-flex items-center justify-between  m-1 text-sm bg-gray-500 text-white font-medium rounded-full pl-3"
                       >
                         {option.label}
                         <button
-                          className="ml-2 bg-white rounded-3xl text-black "
+                          className="m-2 bg-white rounded-full text-black pl-2 pr-2 pt-1 pb-1 "
                           onClick={(e) => {
                             e.stopPropagation();
                             toggleOption(categoryName, option);
@@ -216,7 +216,7 @@ const Testi = ({ setValues }) => {
               </div>
 
               {isDropdownOpen[categoryName] && (
-                <div className="z-10 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg">
+                <div className="z-10 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg ">
                   {categories[categoryName].map((option) => (
                     <div
                       key={option.value}

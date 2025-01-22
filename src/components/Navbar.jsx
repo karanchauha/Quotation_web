@@ -1,18 +1,3 @@
-// import React from "react";
-// import logo from "../assets/logo.png";
-
-// const Navbar = () => {
-//   return (
-//     <nav className="fixed top-0 w-full z-50 bg-white shadow-md">
-//       <div className="max-w-screen-xl mx-auto flex items-center justify-center ">
-//         <img src={logo} alt="Logo" className="w-2/4 h-auto" />
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
 import React from "react";
 import logo from "../assets/logo.png";
 

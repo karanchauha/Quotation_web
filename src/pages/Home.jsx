@@ -1,146 +1,10 @@
-// import React from "react";
-// import Testi from "./Testi";
-// import Electric from "./Electric";
-// import Pop from "./Pop";
-// import Paint from "./Paint";
-// import Navbar from "../components/Navbar";
-
-// const Home = () => {
-//   return (
-//     <div className="pt-20">
-//       <Navbar />
-//       <div>
-//         <Testi />
-//         <Electric />
-//         <Pop />
-//         <Paint />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Home;
-
-// ***********************************************************************************
-
-// import React, { useRef } from "react";
-// import Testi from "./Testi";
-// import Electric from "./Electric";
-// import Pop from "./Pop";
-// import Paint from "./Paint";
-// import Navbar from "../components/Navbar";
-
-// const Home = () => {
-//   const pdfRef = useRef();
-
-//   const generatePDF = () => {
-//     const element = pdfRef.current.cloneNode(true);
-
-//     // Replace all input fields with plain text for the PDF
-//     const inputs = element.querySelectorAll("input");
-//     inputs.forEach((input) => {
-//       const textNode = document.createTextNode(input.value || "");
-//       input.parentNode.replaceChild(textNode, input);
-//     });
-
-//     import("html2pdf.js").then((html2pdf) => {
-//       const opt = {
-//         margin: 0.5,
-//         filename: "quotation.pdf",
-//         image: { type: "jpeg", quality: 0.98 },
-//         html2canvas: { scale: 2 },
-//         jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-//       };
-//       html2pdf.default().set(opt).from(element).save();
-//     });
-//   };
-
-//   return (
-//     <div className="pt-20">
-//       <Navbar />
-//       <div>
-//         <div ref={pdfRef} id="pdf-content">
-//           <Testi />
-//           <Electric />
-//           <Pop />
-//           <Paint />
-//         </div>
-//         <div
-//           onClick={generatePDF}
-//           className="p-5 bg-slate-300 w-1/4 items-center"
-//         >
-//           Download PDF
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Home;
-// *********************************************************************************
-
-// import React, { useRef, useState } from "react";
-// import Testi from "./Testi";
-// import Electric from "./Electric";
-// import Pop from "./Pop";
-// import Paint from "./Paint";
-// import Navbar from "../components/Navbar";
-
-// const Home = () => {
-//   const pdfRef = useRef();
-
-//   const generatePDF = () => {
-//     const element = pdfRef.current.cloneNode(true);
-
-//     // Replace all input fields with plain text for the PDF
-//     const inputs = element.querySelectorAll("input");
-//     inputs.forEach((input) => {
-//       const textNode = document.createTextNode(input.value || "");
-//       input.parentNode.replaceChild(textNode, input);
-//     });
-
-//     import("html2pdf.js").then((html2pdf) => {
-//       const opt = {
-//         margin: 0.5,
-//         filename: "quotation.pdf",
-//         image: { type: "jpeg", quality: 0.98 },
-//         html2canvas: { scale: 2 },
-//         jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-//       };
-//       html2pdf.default().set(opt).from(element).save();
-//     });
-//   };
-
-//   return (
-//     <div className="pt-20 ">
-//       <Navbar />
-//       <div>
-//         <div ref={pdfRef} id="pdf-content">
-//           <Testi />
-//           <Electric />
-//           <Pop />
-//           <Paint />
-//         </div>
-//         <div
-//           onClick={generatePDF}
-//           className="p-5 bg-slate-500 text-white text-xl w-1/4 mx-auto mt-5 cursor-pointer rounded-lg hover:bg-slate-400 mb-5 "
-//         >
-//           Download PDF
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Home;
-
 import React, { useRef, useState } from "react";
 import Testi from "./Testi";
 import Electric from "./Electric";
 import Pop from "./Pop";
 import Paint from "./Paint";
 import Navbar from "../components/Navbar";
-// import Kitchen from "./Kitchen";
+import Kitchen from "../pages/Kitchen";
 
 const usePDFGenerator = (ref, filename = "document.pdf") => {
   const generatePDF = () => {
@@ -190,12 +54,13 @@ const Home = () => {
     setValues_test((prev) => ({ ...prev, [key]: value }));
   };
 
-  let pt = parseFloat(values_test.Paint) || 0;
-  let e = parseFloat(values_test.Electric) || 0;
-  let po = parseFloat(values_test.Pop) || 0;
-  let t = parseFloat(values_test.Testi) || 0;
+  let paint = parseFloat(values_test.Paint) || 0;
+  let electric = parseFloat(values_test.Electric) || 0;
+  let pop = parseFloat(values_test.Pop) || 0;
+  let testi = parseFloat(values_test.Testi) || 0;
+  let kitchen = parseFloat(values_test.Kitchen) || 0;
 
-  let value = pt + e + po + t;
+  let value = paint + electric + pop + testi + kitchen;
 
   const generatePDF = usePDFGenerator(pdfRef, "quotation.pdf");
   return (
@@ -205,7 +70,7 @@ const Home = () => {
       <div>
         <div ref={pdfRef} id="pdf-content">
           <Testi setValues={(value) => updateValue("Testi", value)} />
-
+          <Kitchen setValues={(value) => updateValue("Kitchen", value)} />
           <Electric setValues={(value) => updateValue("Electric", value)} />
           <Pop setValues={(value) => updateValue("Pop", value)} />
           <Paint setValues={(value) => updateValue("Paint", value)} />
